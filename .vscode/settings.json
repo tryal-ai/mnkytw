@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/adamgreen/development/tryal/venv/bin/python",
+    "python.autoComplete.extraPaths": ["./mnkytw"]
+}
