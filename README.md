@@ -1,14 +1,18 @@
 # Monkey's Typewriter (mnkytw)
 
+![logo](/images/mnkytw_logo.png)
+
 Monkey's Typewriter is a PEG parsing framework for Python designed for simplicity, ease of understanding and liberal intepretation of PEG expression grammars. It is zero dependency and uses python's internal `re` regex library for matching axiomatic elements and then 3 complex matchers to allow you to express your grammars
 
 ## Pros and Cons
 
 - Pro: The entire library is 6 files (ignoring examples and module files), and consists of only 6 classes and two functions to make writing easy
 - Pro: You can write the grammars in an object oriented way, declaring your own custom matcher classes, allowing you spread your parser across multiple files, and unit test individual smaller matchers
-- Con: This library does not perfectly conform to PEG parsing standards, for example, left recursion can be made to work using customer matchers
+- Con: This library does not perfectly conform to PEG parsing standards, for example, left recursion can be made to work using custom matchers
 - Con: This library does not have complex quantification expressions, in-built zero-consumption negative lookahead expressions etc. They're fairly easily implementable, but not available as standard
+- Con: No in-built whitespace handling. If you can think of an elegant way to do it that doesn't add too much overhead to the library, post a suggestion in the issues.
 - Con (maybe Pro): A custom matcher can accidentally (or intentionally) backtrack if it chooses too, this can result in unexpected behaviour though because by default our classes assume no backtracking
+
 
 ## Getting Started
 Monkey's Typewriter is a framework, because you have to build your own custom Matcher classes to achieve complex and custom parsing tress. Lets take a look at a simple example to begin with. We will build a parser that can parse expressions such as `3+4+5` giving us a tree where `lhs = 3, symbol = "+", rhs = { lhs = 4, symbol = "+", rhs = 5}`
