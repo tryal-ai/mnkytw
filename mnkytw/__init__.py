@@ -14,6 +14,8 @@ from mnkytw.RegexMatch import RegexMatch
 # language, including appropriate whitespacing
 def peg_parse(body : str, matcher):
     result = matcher.parser(body, False)
+    if not result:
+        return False
     if result[1] != len(body):
         return False
     return result[0]
